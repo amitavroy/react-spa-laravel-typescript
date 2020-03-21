@@ -99,6 +99,21 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        'cloudwatch' => [
+            'driver' => 'custom',
+            'via' => \App\Logging\CloudWatchLoggerFactory::class,
+            'sdk' => [
+                'region' => env('CLOUDWATCH_LOG_REGION', 'us-east-1'),
+                'version' => 'latest',
+                'credentials' => [
+                    'key' => env('CLOUDWATCH_KEY'),
+                    'secret' => env('CLOUDWATCH_SECRET')
+                ]
+            ],
+            'retention' => env('CLOUDWATCH_LOG_RETENTION',30),
+            'level' => env('CLOUDWATCH_LOG_LEVEL','info'),
+            'stream' => env('CLOUDWATCH_STREAM','laravel-log'),
+        ],
     ],
 
 ];
