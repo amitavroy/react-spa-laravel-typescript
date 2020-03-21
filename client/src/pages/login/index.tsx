@@ -7,7 +7,7 @@ class Login extends Component {
         <div className="login-page">
           <div className="login-box">
             <div className="login-logo">
-              <a href="#"><b>Admin</b>LTE</a>
+              <a href="/" onClick={(event) => { event.preventDefault() }}><b>Admin</b>LTE</a>
             </div>
 
             <div className="card">
