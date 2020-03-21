@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './_style.scss';
+import AuthService from './../../services/AuthService';
 
 class Login extends Component {
   state = {
@@ -8,9 +9,14 @@ class Login extends Component {
     isChecked: false
   }
 
-  handleFormSubmit(event) {
+  async handleFormSubmit(event) {
     event.preventDefault();
-    console.log(this.state.username, this.state.password);
+    const postData = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    const response = await AuthService.doUserLogin(postData);
+    console.log('response', response);
   }
 
   handleChecked() {
