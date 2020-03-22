@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { RouteComponentProps } from 'react-router-dom';
 import './_style.scss';
 import AuthService from './../../services/AuthService';
 
-class Login extends Component {
+class Login extends Component<RouteComponentProps> {
   state = {
     username: '',
     password: '',
@@ -16,7 +17,12 @@ class Login extends Component {
       password: this.state.password
     }
     const response = await AuthService.doUserLogin(postData);
-    console.log('response', response);
+    if (response) {
+      AuthService.handleLoginSuccess(response, this.state.isChecked);
+      this.props.history.push('/home');
+    } else {
+      alert("Please check your credentials and try agian");
+    }
   }
 
   handleChecked() {

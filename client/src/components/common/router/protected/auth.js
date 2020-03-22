@@ -1,7 +1,8 @@
 import AuthService from './../../../../services/AuthService';
+import CookieService from '../../../../services/CookieService';
 class Auth {
   constructor() {
-    const token = localStorage.getItem('accessToken');
+    const token = CookieService.get('access_token');
     (token) ? this.authenticated = true : this.authenticated = false;
   }
 
@@ -19,7 +20,7 @@ class Auth {
   }
 
   logout(cb) {
-    localStorage.removeItem('accessToken');
+    CookieService.remove('access_token');
     this.authenticated = false;
     cb();
   }
@@ -29,7 +30,7 @@ class Auth {
   }
 
   getAccessToken() {
-    return localStorage.getItem('accessToken');
+    return CookieService.get('access_token');
   }
 }
 
