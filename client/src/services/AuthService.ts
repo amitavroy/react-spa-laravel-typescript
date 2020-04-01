@@ -13,7 +13,6 @@ class AuthService {
   async doUserLogin(credentials: Credentials) {
     try {
       const response = await axios.post(UrlService.loginUrl(), credentials);
-      console.log('response', response);
       return response.data;
     } catch (error) {
       console.error('Error', error.response);
