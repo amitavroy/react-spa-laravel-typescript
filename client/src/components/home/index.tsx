@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from './../common/card';
-import SmallBox from '../common/smallbox';
 import TopCards from './topcards';
 
 class Home extends Component {

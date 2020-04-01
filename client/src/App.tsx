@@ -9,6 +9,7 @@ import "./assets/css/fontawesome-free/css/all.css";
 import Error from './pages/error';
 import Login from './pages/login';
 import Home from './pages/homepage';
+import Profile from './pages/profile';
 
 interface GuestRouteInterface {
   path: string
@@ -21,7 +22,8 @@ const guestRoutes: Array<GuestRouteInterface> = [
 ];
 
 const protectedRoutes: Array<any> = [
-  { path: "/home", component: Home, exact: true }
+  { path: "/home", component: Home, exact: true },
+  { path: "/profile", component: Profile, exact: true }
 ];
 
 class App extends Component {
