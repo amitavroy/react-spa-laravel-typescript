@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RightDropdown from './rightdropdown';
+import { Link } from 'react-router-dom';
 
 class TopNav extends Component {
   render() {
@@ -10,7 +11,7 @@ class TopNav extends Component {
             <a className="nav-link" data-widget="pushmenu" href="../../index3.html" role="button"><i className="fas fa-bars"></i></a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="../../index3.html" className="nav-link">Home</a>
+            <Link to="home" className="nav-link">Home</Link>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
             <a href="../../index3.html" className="nav-link">Contact</a>
