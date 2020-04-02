@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserProfileCard from './../common/user/userprofilecard';
+import ProfileTabs from './../profile/profiletabs';
 import UserInterface from './../../interfaces/UserInterface';
 
 interface Props {
@@ -14,6 +15,9 @@ class Profile extends Component<Props> {
         <div className="row">
           <div className="col-md-3">
             <UserProfileCard user={user} />
+          </div>
+          <div className="col-md-9">
+            <ProfileTabs />
           </div>
         </div>
       </div>
