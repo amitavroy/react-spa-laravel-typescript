@@ -229,4 +229,9 @@ return [
 
     ],
 
+    /**
+     * Get URL Expiry header
+     */
+    'get_url_expiry' => env('GET_URL_EXPIRY_MINS', 5),
+
 ];
