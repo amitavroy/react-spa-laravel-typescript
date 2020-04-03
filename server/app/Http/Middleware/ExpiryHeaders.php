@@ -17,7 +17,7 @@ class ExpiryHeaders
     {
         // setup the expiry time
         $minutes = config('app.get_url_expiry');
-        $expiry = now()->addSeconds(10)->toRfc7231String();
+        $expiry = now()->addMinutes($minutes)->toRfc7231String();
 
         // get the response object and set header
         $response = $next($request);

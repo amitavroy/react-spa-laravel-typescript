@@ -28,8 +28,7 @@ class SmallBox extends Component<Props> {
           <i className={`ion ${icon}`}></i>
         </div>
         <a href="/" className="small-box-footer" onClick={(event) => this.handleLinkClick(event)}>
-          {linkLabel}
-          <i className="fas fa-arrow-circle-right"></i>
+          {linkLabel} <i className="fas fa-arrow-circle-right"></i>
         </a>
       </div>
     );
