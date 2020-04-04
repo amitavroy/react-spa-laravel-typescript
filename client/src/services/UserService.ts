@@ -2,16 +2,13 @@ import UrlService from "./UrlService";
 import HttpService from "./HttpService";
 
 class UserService {
+  user = null;
+
   async getCurrentUserProfile() {
-    const user = localStorage.getItem('user');
-
-    if (user && user !== '') {
-      return JSON.parse(user);
-    }
-
     const url = UrlService.currentUserProfileUrl();
     try {
       const response = await HttpService.get(url);
+      this.user = response.data;
       return response.data;
     } catch (error) {
       console.error('Not able to fetch the user');

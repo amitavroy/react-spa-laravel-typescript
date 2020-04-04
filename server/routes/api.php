@@ -11,5 +11,9 @@ Route::middleware(['auth:api', 'get.expiry'])->get('/user', function (Request $r
     return $request->user();
 });
 
+Route::group(['middleware' => ['auth:api']], function() {
+    Route::post('/user', [UserController::class, 'store']);
+});
+
 
 Route::get('users/list', [UserController::class, 'index']);
