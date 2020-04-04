@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import UserStateInterface from './.././../../interfaces/UserStateInterface'
+import TreeView from './treeview';
 
 const adminLogo = require('./../../../assets/img/AdminLTELogo.png');
-const user160 = require('./../../../assets/img/user2-160x160.jpg');
+const user160 = require('./../../../assets/img/user1-128x128.jpg');
 
 interface Props {
   user: UserStateInterface
+}
+
+const sideMenu = {
+  home: { groupName: 'Dashboard', groupIcon: 'fa-tachometer-alt', link: [{ name: 'Home', link: '/home' }, { name: 'Profile', link: '/profile' }] },
+  sales: { groupName: 'Sales', groupIcon: 'fa-tree', link: [{ name: 'Sales', link: '/home' }] }
 }
 
 class Aside extends Component<Props> {
@@ -32,40 +38,9 @@ class Aside extends Component<Props> {
           </div>
 
           <nav className="mt-2">
+            <TreeView options={sideMenu.home} />
+            <TreeView options={sideMenu.sales} />
             <ul className="nav nav-pills nav-sidebar flex-column text-sm nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
-              <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => {
-                  event.preventDefault();
-                  let dashLink = document.getElementById('dashboard-link');
-                  dashLink.classList.toggle('navexpand');
-                  setTimeout(() => {
-                    dashLink.style.display = "block";
-                  }, 1000);
-                }}>
-                  <i className="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Dashboard<i className="right fas fa-angle-left"></i></p>
-                </a>
-                <ul className="nav nav-treeview" id="dashboard-link">
-                  <li className="nav-item">
-                    <a href="../../index.html" className="nav-link">
-                      <i className="far fa-circle nav-icon"></i>
-                      <p>Dashboard v1</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="../../index2.html" className="nav-link">
-                      <i className="far fa-circle nav-icon"></i>
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="../../index3.html" className="nav-link">
-                      <i className="far fa-circle nav-icon"></i>
-                      <p>Dashboard v3</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
               <li className="nav-item">
                 <a href="../widgets.html" className="nav-link">
                   <i className="nav-icon fas fa-th"></i>
