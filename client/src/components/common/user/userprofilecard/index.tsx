@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserInterface from './../../../../interfaces/UserInterface';
 
-const user128 = require('./../../../../assets/img/user4-128x128.jpg');
+const user128 = require('./../../../../assets/img/user1-128x128.jpg');
 
 interface Props {
   user: UserInterface
