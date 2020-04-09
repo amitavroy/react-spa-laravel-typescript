@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import TopNav from '../topnav';
 import Aside from '../aside';
+import UserStateInterface from '../../../interfaces/UserStateInterface';
 
 interface Props {
-
+  user: UserStateInterface
 }
 
 class Layout extends Component<Props> {
@@ -11,11 +14,17 @@ class Layout extends Component<Props> {
     return (
       <React.Fragment>
         <TopNav />
-        <Aside />
+        <Aside user={this.props.user} />
         {this.props.children}
       </React.Fragment>
     );
   }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(Layout);

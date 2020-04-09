@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import UserStateInterface from './.././../../interfaces/UserStateInterface'
 
 const adminLogo = require('./../../../assets/img/AdminLTELogo.png');
 const user160 = require('./../../../assets/img/user2-160x160.jpg');
 
-class Aside extends Component {
+interface Props {
+  user: UserStateInterface
+}
+
+class Aside extends Component<Props> {
   render() {
+    const { currentUser } = this.props.user;
     return (
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
         <Link to="home" className="brand-link">
@@ -21,7 +27,7 @@ class Aside extends Component {
               <img src={user160} className="img-circle elevation-2" alt="User" />
             </div>
             <div className="info">
-              <Link className="d-block" to="profile">Alexander Pierce</Link>
+              <Link className="d-block" to="profile">{currentUser.name}</Link>
             </div>
           </div>
 

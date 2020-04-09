@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Layout from '../../components/common/layout';
 import Content from '../../components/common/content';
 import ProfileContent from './../../components/profile';
 import UserService from '../../services/UserService';
 import UserInterface from './../../interfaces/UserInterface';
+import UserStateInterface from './../../interfaces/UserStateInterface';
+import { setUser, getUser } from './../../store/actions';
 
-class Profile extends Component {
-  state = { user: null }
+interface Props {
+  setUser: typeof setUser
+  user: UserStateInterface
+}
+
+class Profile extends Component<Props> {
 
   async componentDidMount() {
     const user: UserInterface = await UserService.getCurrentUserProfile();
-    this.setState({ user: user });
+    this.props.setUser(user);
   }
 
   render() {
-    const { user } = this.state;
+    const { currentUser } = this.props.user;
     return (
       <div className="wrapper">
         <Layout>
           <Content title="Profile">
-            {user && <ProfileContent user={user} />}
+            {currentUser && <ProfileContent user={currentUser} />}
           </Content>
         </Layout>
       </div>
@@ -27,4 +34,10 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps, { setUser, getUser })(Profile);

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux'
 import { ProtectedRoute } from './components/common/router/protected';
+import rootReducers from './store/reducers';
 
 import "./assets/css/gloabl.scss";
 import "./assets/css/adminlte.css";
@@ -16,6 +19,9 @@ interface GuestRouteInterface {
   component: any
   exact?: boolean
 }
+
+
+const store = createStore(rootReducers);
 
 const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/", component: Login, exact: true }
@@ -36,11 +42,13 @@ class App extends Component {
               return <Route exact={route.exact} path={route.path} component={route.component} key={key} />
             })
           }
-          {
-            protectedRoutes.map((route, key) => {
-              return <ProtectedRoute exact={route.exact} path={route.path} component={route.component} key={key} />
-            })
-          }
+          <Provider store={store} >
+            {
+              protectedRoutes.map((route, key) => {
+                return <ProtectedRoute exact={route.exact} path={route.path} component={route.component} key={key} />
+              })
+            }
+          </Provider>
           <Route component={Error} />
         </Switch>
       </BrowserRouter>
