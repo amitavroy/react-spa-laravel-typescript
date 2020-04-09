@@ -10,7 +10,6 @@ class Profile extends Component {
 
   async componentDidMount() {
     const user: UserInterface = await UserService.getCurrentUserProfile();
-    console.log('user', user);
     this.setState({ user: user });
   }
 
