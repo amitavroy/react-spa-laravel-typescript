@@ -14,12 +14,6 @@ interface Props {
 }
 
 class Profile extends Component<Props> {
-
-  async componentDidMount() {
-    const user: UserInterface = await UserService.getCurrentUserProfile();
-    this.props.setUser(user);
-  }
-
   render() {
     const { currentUser } = this.props.user;
     return (

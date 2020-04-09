@@ -4,12 +4,20 @@ import { connect } from 'react-redux';
 import TopNav from '../topnav';
 import Aside from '../aside';
 import UserStateInterface from '../../../interfaces/UserStateInterface';
+import UserService from '../../../services/UserService';
+import { setUser } from './../../../store/actions';
 
 interface Props {
   user: UserStateInterface
+  setUser: typeof setUser
 }
 
 class Layout extends Component<Props> {
+  async componentWillMount() {
+    const response = await UserService.getCurrentUserProfile();
+    this.props.setUser(response);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -27,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Layout);
+export default connect(mapStateToProps, { setUser })(Layout);
