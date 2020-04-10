@@ -13,7 +13,7 @@ interface Props {
 }
 
 class Layout extends Component<Props> {
-  async componentWillMount() {
+  async componentDidMount() {
     const response = await UserService.getCurrentUserProfile();
     this.props.setUser(response);
   }

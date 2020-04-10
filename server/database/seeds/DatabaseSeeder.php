@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Activity;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -35,5 +36,7 @@ class DatabaseSeeder extends Seeder
             'following' => 200,
             'friends' => 50,
         ]);
+
+        factory(Activity::class, 10)->create();
     }
 }

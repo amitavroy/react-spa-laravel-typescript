@@ -9,6 +9,7 @@ class UrlService {
   static loginUrl() { return apiDomain + 'api/login'; }
   static currentUserProfileUrl() { return apiDomain + 'api/user'; }
   static saveUserProfileUrl() { return apiDomain + 'api/user'; }
+  static getCurrentUserAcitiviesUrl() { return apiDomain + 'api/activities'; }
 }
 
 export default UrlService;

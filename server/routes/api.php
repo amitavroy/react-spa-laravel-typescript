@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,10 @@ Route::post('login', [AccessTokenController::class, 'issueToken'])->middleware([
 
 Route::middleware(['auth:api', 'get.expiry'])->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware' => ['auth:api', 'get.expiry']], function () {
+    Route::get('/activities', [ActivityController::class, 'view'])->name('user.save');
 });
 
 Route::group(['middleware' => ['auth:api']], function () {

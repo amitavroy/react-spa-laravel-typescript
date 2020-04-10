@@ -1,4 +1,4 @@
-interface User {
+interface UserInterface {
   name: string
   email: string
   designation: string
@@ -7,4 +7,4 @@ interface User {
   friends: number
 }
 
-export default User;
+export default UserInterface;
