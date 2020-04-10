@@ -17,7 +17,7 @@ class TabPill extends Component<Props> {
 
     return tabPills.map((tab, index) => {
       return (
-        <li className="nav-item" key={index}>
+        <li className="nav-item" key={index} id={`tab-pill-${index}`}>
           <a className={`nav-link ${tabs[tab].active ? 'active' : 'inactive'}`}
             href="/"
             onClick={(event) => this.enableTab(event, tab)}>
