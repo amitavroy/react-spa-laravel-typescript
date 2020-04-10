@@ -12,7 +12,7 @@ Route::middleware(['auth:api', 'get.expiry'])->get('/user', function (Request $r
 });
 
 Route::group(['middleware' => ['auth:api']], function () {
-    Route::post('/user', [UserController::class, 'store']);
+    Route::post('/user', [UserController::class, 'store'])->name('user.save');
 });
 
 

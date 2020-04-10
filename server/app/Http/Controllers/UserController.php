@@ -15,22 +15,13 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $allowedKeys = [
-            'name', 'designation',
-        ];
-
-        $data = $request->all();
-
-        $finalData = [];
-        foreach ($data as $key => $value) {
-            if (!in_array($key, $allowedKeys)) {
-                return response(['message' => "You cannot edit {$key}"], 400);
-            }
-            $finalData[$key] = $value;
-        }
+        $postData = $this->validate($request, [
+            'name' => 'required',
+            'designation' => 'sometimes',
+        ]);
 
         $user = User::find($request->user()->id);
-        $user = tap($user)->update($finalData);
+        $user = tap($user)->update($postData);
 
         return $user;
     }
