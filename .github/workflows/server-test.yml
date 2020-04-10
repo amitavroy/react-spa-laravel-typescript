@@ -37,4 +37,6 @@ jobs:
           pwd
           composer install
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: |
+          cd server
+          vendor/bin/phpunit
