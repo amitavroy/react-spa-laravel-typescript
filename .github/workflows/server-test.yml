@@ -34,9 +34,11 @@ jobs:
       - name: Install dependencies
         run: |
           cd server
-          pwd
+          cp .env.example .env
           composer install
       - name: Execute tests
         run: |
           cd server
+          php artisan key:generate
+          php artisan migrate
           vendor/bin/phpunit
