@@ -6,9 +6,9 @@ import SettingsTab from './../settingstab';
 class ProfileTabs extends Component {
   state = {
     tabs: {
-      activity: { active: true, name: 'Activity', component: ActivityTab, props: {} },
+      activity: { active: false, name: 'Activity', component: ActivityTab, props: {} },
       timeline: { active: false, name: 'Timeline', component: ActivityTab, props: {} },
-      settings: { active: false, name: 'Settings', component: SettingsTab, props: {} }
+      settings: { active: true, name: 'Settings', component: SettingsTab, props: {} }
     }
   }
 

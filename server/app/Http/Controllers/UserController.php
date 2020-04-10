@@ -16,8 +16,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $postData = $this->validate($request, [
-            'name' => 'required',
-            'designation' => 'sometimes',
+            'name' => ['required', 'min:3'],
+            'designation' => ['sometimes', 'min:3'],
         ]);
 
         $user = User::find($request->user()->id);
