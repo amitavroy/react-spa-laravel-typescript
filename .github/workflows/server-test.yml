@@ -39,6 +39,7 @@ jobs:
       - name: Execute tests
         run: |
           cd server
+          touch database/database.sqlite
           php artisan key:generate
           php artisan migrate
           vendor/bin/phpunit
