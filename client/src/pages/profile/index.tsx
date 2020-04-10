@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Layout from '../../components/common/layout';
 import Content from '../../components/common/content';
 import ProfileContent from './../../components/profile';
-import UserService from '../../services/UserService';
-import UserInterface from './../../interfaces/UserInterface';
 import UserStateInterface from './../../interfaces/UserStateInterface';
 import { setUser, getUser } from './../../store/actions';
 
