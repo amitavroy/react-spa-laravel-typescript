@@ -3,9 +3,8 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UserSettingsTest extends TestCase
 {
@@ -25,8 +24,15 @@ class UserSettingsTest extends TestCase
     public function it_requireds_name_while_saving()
     {
         $postData = ['designation' => 'Something'];
-        $response = $this->actingAs($this->user, 'api')->json("POST", $this->url, $postData     );
+        $response = $this->actingAs($this->user, 'api')->json("POST", $this->url, $postData);
         $this->assertValidationError('name', $response);
     }
 
+    /** @test */
+    public function it_saves_and_returns_user_data()
+    {
+        $postData = ['designation' => 'Something', 'name' => 'Jhon Doe'];
+        $response = $this->actingAs($this->user, 'api')->json("POST", $this->url, $postData);
+        $this->assertDatabaseHas('users', $postData);
+    }
 }
