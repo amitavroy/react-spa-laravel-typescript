@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
 import { ProtectedRoute } from './components/common/router/protected';
 import rootReducers from './store/reducers';
 
@@ -21,7 +22,7 @@ interface GuestRouteInterface {
 }
 
 
-const store = createStore(rootReducers);
+const store = createStore(rootReducers, applyMiddleware(thunk));
 
 const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/", component: Login, exact: true }

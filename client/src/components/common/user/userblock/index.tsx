@@ -14,7 +14,7 @@ class UserBlock extends Component<Props> {
     const { time } = this.props;
     return (
       <div className="user-block">
-        <img className="img-circle img-bordered-sm" src={user128} alt="user image" />
+        <img className="img-circle img-bordered-sm" src={user128} alt={name} />
         <span className="username">
           <a href="/" onClick={event => event.preventDefault()}>{name}</a>
           <a href="/" className="float-right btn-tool" onClick={event => event.preventDefault()}><i className="fas fa-times"></i></a>
