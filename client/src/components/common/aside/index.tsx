@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import UserStateInterface from './.././../../interfaces/UserStateInterface'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import UserStateInterface from "./.././../../interfaces/UserStateInterface";
 
-const adminLogo = require('./../../../assets/img/AdminLTELogo.png');
-const user160 = require('./../../../assets/img/user2-160x160.jpg');
+const adminLogo = require("./../../../assets/img/AdminLTELogo.png");
+const user160 = require("./../../../assets/img/user2-160x160.jpg");
 
 interface Props {
-  user: UserStateInterface
+  user: UserStateInterface;
 }
 
 class Aside extends Component<Props> {
@@ -15,35 +15,54 @@ class Aside extends Component<Props> {
     return (
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
         <Link to="home" className="brand-link">
-          <img src={adminLogo}
+          <img
+            src={adminLogo}
             alt="AdminLTE Logo"
-            className="brand-image img-circle elevation-3" />
+            className="brand-image img-circle elevation-3"
+          />
           <span className="brand-text font-weight-light">React Admin</span>
         </Link>
 
         <div className="sidebar">
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
             <div className="image">
-              <img src={user160} className="img-circle elevation-2" alt="User" />
+              <img
+                src={user160}
+                className="img-circle elevation-2"
+                alt="User"
+              />
             </div>
             <div className="info">
-              <Link className="d-block" to="profile">{currentUser.name}</Link>
+              <Link className="d-block" to="profile">
+                {currentUser.name}
+              </Link>
             </div>
           </div>
 
           <nav className="mt-2">
-            <ul className="nav nav-pills nav-sidebar flex-column text-sm nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
+            <ul
+              className="nav nav-pills nav-sidebar flex-column text-sm nav-legacy"
+              data-widget="treeview"
+              role="menu"
+              data-accordion="false"
+            >
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => {
-                  event.preventDefault();
-                  let dashLink = document.getElementById('dashboard-link');
-                  dashLink.classList.toggle('navexpand');
-                  setTimeout(() => {
-                    dashLink.style.display = "block";
-                  }, 1000);
-                }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    let dashLink = document.getElementById("dashboard-link");
+                    dashLink.classList.toggle("navexpand");
+                    setTimeout(() => {
+                      dashLink.style.display = "block";
+                    }, 1000);
+                  }}
+                >
                   <i className="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Dashboard<i className="right fas fa-angle-left"></i></p>
+                  <p>
+                    Dashboard<i className="right fas fa-angle-left"></i>
+                  </p>
                 </a>
                 <ul className="nav nav-treeview" id="dashboard-link">
                   <li className="nav-item">
@@ -71,16 +90,22 @@ class Aside extends Component<Props> {
                   <i className="nav-icon fas fa-th"></i>
                   <p>
                     Widgets
-                <span className="right badge badge-danger">New</span>
+                    <span className="right badge badge-danger">New</span>
                   </p>
                 </a>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon fas fa-copy"></i>
                   <p>
                     Layout Options
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                     <span className="badge badge-info right">6</span>
                   </p>
                 </a>
@@ -92,7 +117,10 @@ class Aside extends Component<Props> {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="../layout/top-nav-sidebar.html" className="nav-link">
+                    <a
+                      href="../layout/top-nav-sidebar.html"
+                      className="nav-link"
+                    >
                       <i className="far fa-circle nav-icon"></i>
                       <p>Top Navigation + Sidebar</p>
                     </a>
@@ -122,7 +150,10 @@ class Aside extends Component<Props> {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="../layout/collapsed-sidebar.html" className="nav-link">
+                    <a
+                      href="../layout/collapsed-sidebar.html"
+                      className="nav-link"
+                    >
                       <i className="far fa-circle nav-icon"></i>
                       <p>Collapsed Sidebar</p>
                     </a>
@@ -130,11 +161,17 @@ class Aside extends Component<Props> {
                 </ul>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon fas fa-chart-pie"></i>
                   <p>
                     Charts
-                <i className="right fas fa-angle-left"></i>
+                    <i className="right fas fa-angle-left"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -159,11 +196,17 @@ class Aside extends Component<Props> {
                 </ul>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon fas fa-tree"></i>
                   <p>
                     UI Elements
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -218,11 +261,17 @@ class Aside extends Component<Props> {
                 </ul>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon fas fa-edit"></i>
                   <p>
                     Forms
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -253,11 +302,17 @@ class Aside extends Component<Props> {
                 </ul>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon fas fa-table"></i>
                   <p>
                     Tables
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -287,24 +342,28 @@ class Aside extends Component<Props> {
                   <i className="nav-icon far fa-calendar-alt"></i>
                   <p>
                     Calendar
-                <span className="badge badge-info right">2</span>
+                    <span className="badge badge-info right">2</span>
                   </p>
                 </a>
               </li>
               <li className="nav-item">
                 <a href="../gallery.html" className="nav-link">
                   <i className="nav-icon far fa-image"></i>
-                  <p>
-                    Gallery
-              </p>
+                  <p>Gallery</p>
                 </a>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon far fa-envelope"></i>
                   <p>
                     Mailbox
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -329,11 +388,17 @@ class Aside extends Component<Props> {
                 </ul>
               </li>
               <li className="nav-item has-treeview">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon fas fa-book"></i>
                   <p>
                     Pages
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -368,13 +433,19 @@ class Aside extends Component<Props> {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="../examples/project-edit.html" className="nav-link">
+                    <a
+                      href="../examples/project-edit.html"
+                      className="nav-link"
+                    >
                       <i className="far fa-circle nav-icon"></i>
                       <p>Project Edit</p>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="../examples/project-detail.html" className="nav-link">
+                    <a
+                      href="../examples/project-detail.html"
+                      className="nav-link"
+                    >
                       <i className="far fa-circle nav-icon"></i>
                       <p>Project Detail</p>
                     </a>
@@ -388,11 +459,17 @@ class Aside extends Component<Props> {
                 </ul>
               </li>
               <li className="nav-item has-treeview menu-open">
-                <a href="/" className="nav-link" onClick={(event) => { event.preventDefault() }}>
+                <a
+                  href="/"
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                  }}
+                >
                   <i className="nav-icon far fa-plus-square"></i>
                   <p>
                     Extras
-                <i className="fas fa-angle-left right"></i>
+                    <i className="fas fa-angle-left right"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
@@ -409,13 +486,19 @@ class Aside extends Component<Props> {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="../examples/forgot-password.html" className="nav-link">
+                    <a
+                      href="../examples/forgot-password.html"
+                      className="nav-link"
+                    >
                       <i className="far fa-circle nav-icon"></i>
                       <p>Forgot Password</p>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="../examples/recover-password.html" className="nav-link">
+                    <a
+                      href="../examples/recover-password.html"
+                      className="nav-link"
+                    >
                       <i className="far fa-circle nav-icon"></i>
                       <p>Recover Password</p>
                     </a>

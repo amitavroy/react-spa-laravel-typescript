@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Card from './../common/card';
-import TopCards from './topcards';
+import React, { Component } from "react";
+import Card from "./../common/card";
+import TopCards from "./topcards";
 
 class Home extends Component {
   render() {

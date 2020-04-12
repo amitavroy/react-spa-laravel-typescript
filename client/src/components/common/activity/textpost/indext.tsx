@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import UserBlock from '../../user/userblock';
-import ActivityInterface from '../../../../interfaces/ActivityInterface';
+import React, { Component } from "react";
+import UserBlock from "../../user/userblock";
+import ActivityInterface from "../../../../interfaces/ActivityInterface";
 
 interface Props {
-  activity: ActivityInterface
+  activity: ActivityInterface;
 }
 
 class TextPost extends Component<Props> {
@@ -15,15 +15,29 @@ class TextPost extends Component<Props> {
         <p>{caption}</p>
 
         <p>
-          <a href="/" onClick={event => event.preventDefault()} className="link-black text-sm"><i className="far fa-thumbs-up mr-1"></i> Like ({likes})</a>
+          <a
+            href="/"
+            onClick={(event) => event.preventDefault()}
+            className="link-black text-sm"
+          >
+            <i className="far fa-thumbs-up mr-1"></i> Like ({likes})
+          </a>
           <span className="float-right">
-            <a href="/" onClick={event => event.preventDefault()} className="link-black text-sm">
+            <a
+              href="/"
+              onClick={(event) => event.preventDefault()}
+              className="link-black text-sm"
+            >
               <i className="far fa-comments mr-1"></i> Comments ({comments}})
-                          </a>
+            </a>
           </span>
         </p>
 
-        <input className="form-control form-control-sm" type="text" placeholder="Type a comment" />
+        <input
+          className="form-control form-control-sm"
+          type="text"
+          placeholder="Type a comment"
+        />
       </div>
     );
   }

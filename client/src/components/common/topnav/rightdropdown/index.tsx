@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import NotificationDropdown from '../notificationdropdown';
-import ChatDropdown from '../chatdropdown';
+import React, { Component } from "react";
+import NotificationDropdown from "../notificationdropdown";
+import ChatDropdown from "../chatdropdown";
 
 class RigthDropdown extends Component {
   render() {

@@ -1,9 +1,9 @@
-import AuthService from './../../../../services/AuthService';
-import CookieService from '../../../../services/CookieService';
+import AuthService from "./../../../../services/AuthService";
+import CookieService from "../../../../services/CookieService";
 class Auth {
   constructor() {
-    const token = CookieService.get('access_token');
-    (token) ? this.authenticated = true : this.authenticated = false;
+    const token = CookieService.get("access_token");
+    token ? (this.authenticated = true) : (this.authenticated = false);
   }
 
   async login(credentails, cb) {
@@ -14,13 +14,13 @@ class Auth {
       return false;
     }
 
-    localStorage.setItem('accessToken', user.access_token);
+    localStorage.setItem("accessToken", user.access_token);
     this.authenticated = true;
     cb(true);
   }
 
   logout(cb) {
-    CookieService.remove('access_token');
+    CookieService.remove("access_token");
     this.authenticated = false;
     cb();
   }
@@ -30,7 +30,7 @@ class Auth {
   }
 
   getAccessToken() {
-    return CookieService.get('access_token');
+    return CookieService.get("access_token");
   }
 }
 

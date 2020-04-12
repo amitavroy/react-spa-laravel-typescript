@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import TextPost from '../../common/activity/textpost/indext';
-import { getActivities } from './../../../store/actions/activityActions';
+import TextPost from "../../common/activity/textpost/indext";
+import { getActivities } from "./../../../store/actions/activityActions";
 
 interface Props {
-  activities: any
-  getActivities: typeof getActivities
+  activities: any;
+  getActivities: typeof getActivities;
 }
 
 class ActivityTab extends Component<Props> {
@@ -20,25 +20,23 @@ class ActivityTab extends Component<Props> {
   renderActivities() {
     const { activities } = this.props;
     return activities.map((activity, index) => {
-      return <TextPost activity={activity} key={index} />
+      return <TextPost activity={activity} key={index} />;
     });
   }
 
   render() {
-    return (
-      <div>{this.renderActivities()}</div>
-    );
+    return <div>{this.renderActivities()}</div>;
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    activities: state.activity.activities
+    activities: state.activity.activities,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return { getActivities: bindActionCreators(getActivities, dispatch) }
-}
+const mapDispatchToProps = (dispatch) => {
+  return { getActivities: bindActionCreators(getActivities, dispatch) };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityTab);

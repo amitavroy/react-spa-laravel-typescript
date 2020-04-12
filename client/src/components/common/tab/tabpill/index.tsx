@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 interface Props {
-  tabs: any
-  handleEnableTab: any
+  tabs: any;
+  handleEnableTab: any;
 }
 
 class TabPill extends Component<Props> {
@@ -18,9 +18,11 @@ class TabPill extends Component<Props> {
     return tabPills.map((tab, index) => {
       return (
         <li className="nav-item" key={index} id={`tab-pill-${index}`}>
-          <a className={`nav-link ${tabs[tab].active ? 'active' : 'inactive'}`}
+          <a
+            className={`nav-link ${tabs[tab].active ? "active" : "inactive"}`}
             href="/"
-            onClick={(event) => this.enableTab(event, tab)}>
+            onClick={(event) => this.enableTab(event, tab)}
+          >
             {tabs[tab].name}
           </a>
         </li>

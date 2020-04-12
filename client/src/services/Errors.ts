@@ -1,5 +1,5 @@
 class Errors {
-  errors = {}
+  errors = {};
   getErrors() {
     return this.errors;
   }
@@ -7,7 +7,7 @@ class Errors {
     this.errors = response.data.errors;
   }
   getKey(key: string) {
-    return (this.errors[key] !== undefined) ? this.errors[key][0] : null;
+    return this.errors[key] !== undefined ? this.errors[key][0] : null;
   }
   reset() {
     this.errors = {};

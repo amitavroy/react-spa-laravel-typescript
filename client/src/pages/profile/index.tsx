@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Layout from '../../components/common/layout';
-import Content from '../../components/common/content';
-import ProfileContent from './../../components/profile';
-import UserStateInterface from './../../interfaces/UserStateInterface';
-import { setUser, getUser } from './../../store/actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Layout from "../../components/common/layout";
+import Content from "../../components/common/content";
+import ProfileContent from "./../../components/profile";
+import UserStateInterface from "./../../interfaces/UserStateInterface";
+import { setUser, getUser } from "./../../store/actions";
 
 interface Props {
-  setUser: typeof setUser
-  user: UserStateInterface
+  setUser: typeof setUser;
+  user: UserStateInterface;
 }
 
 class Profile extends Component<Props> {
@@ -26,9 +26,9 @@ class Profile extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
   };
 };
 

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import TopNav from '../topnav';
-import Aside from '../aside';
-import UserStateInterface from '../../../interfaces/UserStateInterface';
-import UserService from '../../../services/UserService';
-import { setUser } from './../../../store/actions';
+import TopNav from "../topnav";
+import Aside from "../aside";
+import UserStateInterface from "../../../interfaces/UserStateInterface";
+import UserService from "../../../services/UserService";
+import { setUser } from "./../../../store/actions";
 
 interface Props {
-  user: UserStateInterface
-  setUser: typeof setUser
+  user: UserStateInterface;
+  setUser: typeof setUser;
 }
 
 class Layout extends Component<Props> {
@@ -29,9 +29,9 @@ class Layout extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
   };
 };
 

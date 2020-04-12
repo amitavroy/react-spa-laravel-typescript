@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from "react";
 
 interface Props {
-  message?: string
+  message?: string;
 }
 
 class ValidationErorr extends Component<Props> {
@@ -9,7 +9,7 @@ class ValidationErorr extends Component<Props> {
     const { message } = this.props;
     return (
       <Fragment>
-        {(message) ? <div className="validation-error">{message}</div> : null}
+        {message ? <div className="validation-error">{message}</div> : null}
       </Fragment>
     );
   }
