@@ -11,4 +11,7 @@ I have not made any change in the CSS, and tried to replicate as much of the fun
 The application is completely developed in Typescript using the Create React App Typescript template. 
 
 - The PHP code is formatted through PHP-CS-Fixer during the pre-commit hook so you will find consistend code throughout the application followign the rule of phpcsfixer.
-- API level tests written to ensure maximum test coverage of code
+- The Javascript / Typescript code is formatted using Prettier dring the pre-commit hook as well.
+- API level tests written to ensure maximum test coverage of code.
+- Enzyme based tests written to ensure maximum test coverage for React Components.
+- Have added Git actions and workflow to ensure tests are executed on each code push and run PHP Unit and Javascript tests cases.
