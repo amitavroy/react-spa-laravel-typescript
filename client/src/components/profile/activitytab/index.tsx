@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import TextPost from "../../common/activity/textpost/indext";
+import TextPost from "../../common/activity/textpost";
 import { getActivities } from "./../../../store/actions/activityActions";
 
 interface Props {

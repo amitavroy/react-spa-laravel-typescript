@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitiesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('text');
             $table->unsignedBigInteger('user_id');
-            $table->text('caption');
-            $table->enum('type', ['text', 'images'])->default('text');
-            $table->integer('comments')->default(0);
-            $table->integer('likes')->default(0);
+
+            $table->unsignedBigInteger('commentable_id');
+            $table->string('commentable_type');
+
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('comments');
     }
 }

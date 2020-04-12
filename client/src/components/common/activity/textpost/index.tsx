@@ -10,9 +10,9 @@ class TextPost extends Component<Props> {
   render() {
     const { caption, user, comments, likes } = this.props.activity;
     return (
-      <div className="post">
+      <div className="post text-post-component">
         <UserBlock user={user} time="7:30 PM today" />
-        <p>{caption}</p>
+        <p className="activity-caption">{caption}</p>
 
         <p>
           <a
@@ -28,7 +28,7 @@ class TextPost extends Component<Props> {
               onClick={(event) => event.preventDefault()}
               className="link-black text-sm"
             >
-              <i className="far fa-comments mr-1"></i> Comments ({comments}})
+              <i className="far fa-comments mr-1"></i> Comments ({comments})
             </a>
           </span>
         </p>
