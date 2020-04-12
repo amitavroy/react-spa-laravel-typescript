@@ -31,15 +31,20 @@ jobs:
           extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
           coverage: none
 
-      - name: Install dependencies
+      - name: Install dependencies for Laravel
         run: |
           cd server
           cp .env.example .env
           composer install
-      - name: Execute tests
+      - name: Execute PHP tests
         run: |
           cd server
           touch database/database.sqlite
           php artisan key:generate
           php artisan migrate
           vendor/bin/phpunit
+      - name: Install dependencies for React and run test
+        run: |
+          cd client
+          npm install
+          npm run test
