@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class TodoItem extends Component {
   render() {
@@ -13,7 +13,9 @@ class TodoItem extends Component {
           <label htmlFor="todoCheck1"></label>
         </div>
         <span className="text">Design a nice theme</span>
-        <small className="badge badge-danger"><i className="far fa-clock"></i> 2 mins</small>
+        <small className="badge badge-danger">
+          <i className="far fa-clock"></i> 2 mins
+        </small>
         <div className="tools">
           <i className="fas fa-edit"></i>
           <i className="fas fa-trash-o"></i>

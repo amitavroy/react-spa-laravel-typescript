@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import TodoService from '../../../services/TodoService';
-import TodoItem from './../todoitem';
+import React, { Component } from "react";
+import TodoService from "../../../services/TodoService";
+import TodoItem from "./../todoitem";
 
 class TodoList extends Component {
   state = { todos: [], loading: false };
@@ -13,7 +13,7 @@ class TodoList extends Component {
 
   renderItems() {
     const { todos } = this.state;
-    return todos.map(todo => {
+    return todos.map((todo) => {
       return <TodoItem />;
     });
   }
@@ -22,10 +22,11 @@ class TodoList extends Component {
     const { todos } = this.state;
     return (
       <React.Fragment>
-        {todos.length === 0 ?
-          <p>No todos yet</p> :
+        {todos.length === 0 ? (
+          <p>No todos yet</p>
+        ) : (
           <ul className="todo-list">{this.renderItems()}</ul>
-        }
+        )}
       </React.Fragment>
     );
   }
