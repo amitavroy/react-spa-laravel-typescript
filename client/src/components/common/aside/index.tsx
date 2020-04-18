@@ -10,9 +10,20 @@ interface Props {
 }
 
 const sideMenu = {
-  home: { groupName: 'Dashboard', groupIcon: 'fa-tachometer-alt', link: [{ name: 'Home', link: '/home' }, { name: 'Profile', link: '/profile' }] },
-  sales: { groupName: 'Sales', groupIcon: 'fa-tree', link: [{ name: 'Sales', link: '/home' }] }
-}
+  home: {
+    groupName: "Dashboard",
+    groupIcon: "fa-tachometer-alt",
+    link: [
+      { name: "Home", link: "/home" },
+      { name: "Profile", link: "/profile" },
+    ],
+  },
+  sales: {
+    groupName: "Sales",
+    groupIcon: "fa-tree",
+    link: [{ name: "Sales", link: "/home" }],
+  },
+};
 
 class Aside extends Component<Props> {
   render() {
