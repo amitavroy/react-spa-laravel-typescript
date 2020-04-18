@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 
-class Card extends Component {
+interface Props {
+  title: string
+  titleIcon?: string
+  footer?: any
+}
+
+class Card extends Component<Props> {
   render() {
+    const { title, titleIcon, children, footer } = this.props;
     return (
       <div className="card">
         <div className="card-header">
-          <h3 className="card-title">Title</h3>
+          <h3 className="card-title">
+            {titleIcon && <i className={`ion ${titleIcon} mr-1`}></i>}
+            {title}
+          </h3>
 
           <div className="card-tools">
             <button
@@ -29,11 +39,9 @@ class Card extends Component {
           </div>
         </div>
 
-        <div className="card-body">
-          Start creating your amazing application!
-        </div>
+        <div className="card-body">{children}</div>
 
-        <div className="card-footer">Footer</div>
+        {footer && <div className="card-footer">{footer}</div>}
       </div>
     );
   }
