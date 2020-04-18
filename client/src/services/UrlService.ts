@@ -18,6 +18,9 @@ class UrlService {
   static getCurrentUserAcitiviesUrl() {
     return apiDomain + "api/activities";
   }
+  static getTodoUrl() {
+    return apiDomain + "api/todos";
+  }
 }
 
 export default UrlService;
