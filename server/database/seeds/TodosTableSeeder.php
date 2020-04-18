@@ -16,7 +16,7 @@ class TodosTableSeeder extends Seeder
             'description' => 'Design a nice theme',
             'user_id' => 1,
             'is_completed' => 0,
-            'ends_at' => now()->addMinutes(2),
+            'ends_at' => now()->addMinutes(30), // minutes
             'order' => 1,
         ]);
 
@@ -24,7 +24,7 @@ class TodosTableSeeder extends Seeder
             'description' => 'Make the theme responsive',
             'user_id' => 1,
             'is_completed' => 1,
-            'ends_at' => now()->addHours(4),
+            'ends_at' => now()->addMinutes(90), // hours
             'order' => 2,
         ]);
 
@@ -32,7 +32,7 @@ class TodosTableSeeder extends Seeder
             'description' => 'Let theme shine like a star',
             'user_id' => 1,
             'is_completed' => 0,
-            'ends_at' => now()->addDays(1),
+            'ends_at' => now()->addHours(25), // day
             'order' => 3,
         ]);
 
@@ -40,7 +40,7 @@ class TodosTableSeeder extends Seeder
             'description' => 'Let theme shine like a star',
             'user_id' => 1,
             'is_completed' => 0,
-            'ends_at' => now()->addDays(3),
+            'ends_at' => now()->addDays(5), // days
             'order' => 4,
         ]);
 
@@ -48,7 +48,7 @@ class TodosTableSeeder extends Seeder
             'description' => 'Check your messages and notifications ',
             'user_id' => 1,
             'is_completed' => 0,
-            'ends_at' => now()->addDays(7),
+            'ends_at' => now()->addDays(8), // week
             'order' => 5,
         ]);
 
@@ -56,7 +56,7 @@ class TodosTableSeeder extends Seeder
             'description' => 'Let theme shine like a star',
             'user_id' => 1,
             'is_completed' => 0,
-            'ends_at' => now()->addDays(30),
+            'ends_at' => now()->addDays(33), // month
             'order' => 6,
         ]);
     }

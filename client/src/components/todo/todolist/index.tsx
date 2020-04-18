@@ -13,8 +13,8 @@ class TodoList extends Component {
 
   renderItems() {
     const { todos } = this.state;
-    return todos.map((todo) => {
-      return <TodoItem />;
+    return todos.map((todo, index) => {
+      return <TodoItem key={index} todo={todo} />;
     });
   }
 
@@ -25,8 +25,8 @@ class TodoList extends Component {
         {todos.length === 0 ? (
           <p>No todos yet</p>
         ) : (
-          <ul className="todo-list">{this.renderItems()}</ul>
-        )}
+            <ul className="todo-list">{this.renderItems()}</ul>
+          )}
       </React.Fragment>
     );
   }
