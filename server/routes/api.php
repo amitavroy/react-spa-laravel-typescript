@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,7 @@ Route::middleware(['auth:api', 'get.expiry'])->get('/user', function (Request $r
 
 Route::group(['middleware' => ['auth:api', 'get.expiry']], function () {
     Route::get('/activities', [ActivityController::class, 'view'])->name('user.save');
+    Route::get('/todos', [TodoController::class, 'index'])->name('todo.list');
 });
 
 Route::group(['middleware' => ['auth:api']], function () {
