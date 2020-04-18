@@ -110,9 +110,9 @@ return [
                     'secret' => env('CLOUDWATCH_SECRET')
                 ]
             ],
-            'retention' => env('CLOUDWATCH_LOG_RETENTION',30),
-            'level' => env('CLOUDWATCH_LOG_LEVEL','info'),
-            'stream' => env('CLOUDWATCH_STREAM','laravel-log'),
+            'retention' => env('CLOUDWATCH_LOG_RETENTION', 30),
+            'level' => env('CLOUDWATCH_LOG_LEVEL', 'info'),
+            'stream' => env('CLOUDWATCH_STREAM', 'laravel-log'),
         ],
     ],
 

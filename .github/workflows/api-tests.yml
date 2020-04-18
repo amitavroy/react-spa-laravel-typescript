@@ -1,0 +1,50 @@
+name: "API Server tests"
+
+on: [push, pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.3]
+        dependency-version: [prefer-stable]
+
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
+          coverage: none
+
+      - name: Install dependencies for Laravel
+        run: |
+          cd server
+          cp .env.example .env
+          composer install
+      - name: Execute PHP tests
+        run: |
+          cd server
+          touch database/database.sqlite
+          php artisan key:generate
+          php artisan migrate
+          vendor/bin/phpunit
+      - name: Install dependencies for React and run test
+        run: |
+          cd client
+          npm install
+          npm run test

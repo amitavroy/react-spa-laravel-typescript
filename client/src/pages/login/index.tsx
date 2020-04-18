@@ -1,25 +1,25 @@
 import React, { Component } from "react";
-import { RouteComponentProps } from 'react-router-dom';
-import './_style.scss';
-import AuthService from './../../services/AuthService';
+import { RouteComponentProps } from "react-router-dom";
+import "./_style.scss";
+import AuthService from "./../../services/AuthService";
 
 class Login extends Component<RouteComponentProps> {
   state = {
-    username: '',
-    password: '',
-    isChecked: false
-  }
+    username: "",
+    password: "",
+    isChecked: false,
+  };
 
   async handleFormSubmit(event) {
     event.preventDefault();
     const postData = {
       username: this.state.username,
-      password: this.state.password
-    }
+      password: this.state.password,
+    };
     const response = await AuthService.doUserLogin(postData);
     if (response) {
       AuthService.handleLoginSuccess(response, this.state.isChecked);
-      this.props.history.push('/home');
+      this.props.history.push("/home");
     } else {
       alert("Please check your credentials and try agian");
     }
@@ -36,7 +36,14 @@ class Login extends Component<RouteComponentProps> {
         <div className="login-page">
           <div className="login-box">
             <div className="login-logo">
-              <a href="/" onClick={(event) => { event.preventDefault() }}><b>React</b>ADMIN</a>
+              <a
+                href="/"
+                onClick={(event) => {
+                  event.preventDefault();
+                }}
+              >
+                <b>React</b>ADMIN
+              </a>
             </div>
 
             <div className="card">
@@ -45,12 +52,16 @@ class Login extends Component<RouteComponentProps> {
 
                 <form onSubmit={(event) => this.handleFormSubmit(event)}>
                   <div className="input-group mb-3">
-                    <input type="email"
+                    <input
+                      type="email"
                       name="name"
                       className="form-control"
                       placeholder="Email"
                       value={username}
-                      onChange={event => this.setState({ username: event.target.value })} />
+                      onChange={(event) =>
+                        this.setState({ username: event.target.value })
+                      }
+                    />
                     <div className="input-group-append">
                       <div className="input-group-text">
                         <span className="fas fa-envelope"></span>
@@ -58,12 +69,16 @@ class Login extends Component<RouteComponentProps> {
                     </div>
                   </div>
                   <div className="input-group mb-3">
-                    <input type="password"
+                    <input
+                      type="password"
                       name="password"
                       className="form-control"
                       placeholder="Password"
                       value={password}
-                      onChange={event => this.setState({ password: event.target.value })} />
+                      onChange={(event) =>
+                        this.setState({ password: event.target.value })
+                      }
+                    />
                     <div className="input-group-append">
                       <div className="input-group-text">
                         <span className="fas fa-lock"></span>
@@ -73,12 +88,27 @@ class Login extends Component<RouteComponentProps> {
                   <div className="row">
                     <div className="col-8">
                       <div className="icheck-primary">
-                        <input type="checkbox" id="remember" onChange={() => this.handleChecked()} checked={isChecked} />
-                        <label onClick={() => this.handleChecked()} id="remember-label">Remember Me</label>
+                        <input
+                          type="checkbox"
+                          id="remember"
+                          onChange={() => this.handleChecked()}
+                          checked={isChecked}
+                        />
+                        <label
+                          onClick={() => this.handleChecked()}
+                          id="remember-label"
+                        >
+                          Remember Me
+                        </label>
                       </div>
                     </div>
                     <div className="col-4">
-                      <button type="submit" className="btn btn-primary btn-block">Sign In</button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-block"
+                      >
+                        Sign In
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -87,7 +117,9 @@ class Login extends Component<RouteComponentProps> {
                   <a href="forgot-password.html">I forgot my password</a>
                 </p>
                 <p className="mb-0">
-                  <a href="register.html" className="text-center">Register a new membership</a>
+                  <a href="register.html" className="text-center">
+                    Register a new membership
+                  </a>
                 </p>
               </div>
             </div>

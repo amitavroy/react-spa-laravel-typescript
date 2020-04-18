@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Layout from '../../components/common/layout';
-import Content from '../../components/common/content';
-import Home from './../../components/home';
+import React, { Component } from "react";
+import Layout from "../../components/common/layout";
+import Content from "../../components/common/content";
+import Home from "./../../components/home";
 
 class HomePage extends Component {
   render() {

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import SmallBox from './../../common/smallbox';
+import React, { Component } from "react";
+import SmallBox from "./../../common/smallbox";
 
 class TopCards extends Component {
   render() {
@@ -12,7 +12,10 @@ class TopCards extends Component {
             stats="150"
             label="New orders"
             linkLabel="More info"
-            onClickHandler={(data) => { console.log(data) }} />
+            onClickHandler={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
         <div className="col-md-3 col-sm-12">
           <SmallBox
@@ -21,7 +24,10 @@ class TopCards extends Component {
             stats="53%"
             label="Bounce rates"
             linkLabel="More info"
-            onClickHandler={(data) => { console.log(data) }} />
+            onClickHandler={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
         <div className="col-md-3 col-sm-12">
           <SmallBox
@@ -30,7 +36,10 @@ class TopCards extends Component {
             stats="44"
             label="User registrations"
             linkLabel="More info"
-            onClickHandler={(data) => { console.log(data) }} />
+            onClickHandler={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
         <div className="col-md-3 col-sm-12">
           <SmallBox
@@ -39,7 +48,10 @@ class TopCards extends Component {
             stats="65"
             label="Unique visitors"
             linkLabel="More info"
-            onClickHandler={(data) => { console.log(data) }} />
+            onClickHandler={(data) => {
+              console.log(data);
+            }}
+          />
         </div>
       </div>
     );

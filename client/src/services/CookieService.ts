@@ -1,4 +1,4 @@
-import Cookie from 'universal-cookie';
+import Cookie from "universal-cookie";
 
 const cookie = new Cookie();
 
