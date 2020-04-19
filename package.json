@@ -1,7 +1,7 @@
 {
   "lint-staged": {
     "*.php": "php ./server/vendor/bin/php-cs-fixer fix --config .php_cs",
-    "*.{js,jsx,ts}": "npx prettier --write ./client/src"
+    "*.{js,jsx,ts}": "npx prettier --write"
   },
   "husky": {
     "hooks": {

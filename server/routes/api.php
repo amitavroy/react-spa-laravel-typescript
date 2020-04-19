@@ -15,10 +15,11 @@ Route::middleware(['auth:api', 'get.expiry'])->get('/user', function (Request $r
 
 Route::group(['middleware' => ['auth:api', 'get.expiry']], function () {
     Route::get('/activities', [ActivityController::class, 'view'])->name('user.save');
-    Route::get('/todos', [TodoController::class, 'index'])->name('todo.list');
 });
 
 Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/todos', [TodoController::class, 'index'])->name('todo.list');
+    Route::get('/todo/complete/{todo}', [TodoController::class, 'markComplete'])->name('todo.markComplete');
     Route::post('/user', [UserController::class, 'store'])->name('user.save');
 });
 
