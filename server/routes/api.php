@@ -20,6 +20,8 @@ Route::group(['middleware' => ['auth:api', 'get.expiry']], function () {
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/todos', [TodoController::class, 'index'])->name('todo.list');
     Route::get('/todo/complete/{todo}', [TodoController::class, 'markComplete'])->name('todo.markComplete');
+    Route::post('/todo/reorder', [TodoController::class, 'reorder'])->name('todo.reorder');
+
     Route::post('/user', [UserController::class, 'store'])->name('user.save');
 });
 

@@ -64,6 +64,18 @@ class TodoList extends Component {
     this.setState({ todos });
   }
 
+  handleChangeOrder(oldIndex, newIndex) {
+    if (oldIndex === newIndex) {
+      return;
+    }
+    const { todos } = this.state;
+    let newSequence = [];
+    todos.forEach((todo, index) => {
+      newSequence.push({ id: todo.id, order: index + 1 });
+    });
+    TodoService.changeTodoOrder(newSequence);
+  }
+
   render() {
     const { todos } = this.state;
     return (
@@ -76,6 +88,7 @@ class TodoList extends Component {
             let newTodos = todos;
             newTodos = arrayMove(newTodos, oldIndex, newIndex);
             this.setState({ todos: newTodos });
+            this.handleChangeOrder(oldIndex, newIndex);
           }}
           markTodoCompelete={(todo) => this.markTodoCompelte(todo)}
         />

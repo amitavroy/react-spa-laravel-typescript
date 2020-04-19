@@ -24,6 +24,9 @@ class UrlService {
   static markTodoCompleteUrl(id) {
     return apiDomain + "api/todo/complete/" + id;
   }
+  static changeTodoOrderUrl() {
+    return apiDomain + "api/todo/reorder";
+  }
 }
 
 export default UrlService;
