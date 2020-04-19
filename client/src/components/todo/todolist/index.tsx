@@ -11,10 +11,21 @@ class TodoList extends Component {
     this.setState({ loading: false, todos: response });
   }
 
+  async markTodoCompelte(todo) {
+    const response = await TodoService.markTodoComplete(todo);
+    let todos = this.state.todos;
+    todos.forEach((todo, index) => {
+      if (todo.id === response.id) {
+        todos[index] = response;
+      }
+    });
+    this.setState({ todos });
+  }
+
   renderItems() {
     const { todos } = this.state;
     return todos.map((todo, index) => {
-      return <TodoItem key={index} todo={todo} />;
+      return <TodoItem key={index} todo={todo} markTodoCompelete={todo => this.markTodoCompelte(todo)} />;
     });
   }
 
