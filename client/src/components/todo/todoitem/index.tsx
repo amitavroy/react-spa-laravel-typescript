@@ -4,6 +4,7 @@ import TodoInterface from './../../../interfaces/TodoInterface';
 interface Props {
   todo: TodoInterface
   markTodoCompelete: any
+  dragHandle: any
 }
 
 class TodoItem extends Component<Props> {
@@ -14,13 +15,10 @@ class TodoItem extends Component<Props> {
   }
 
   render() {
-    const { todo } = this.props;
+    const { todo, dragHandle } = this.props;
     return (
       <li className={`${(todo.is_completed == true) ? 'done' : ''}`}>
-        <span className="handle">
-          <i className="fas fa-ellipsis-v"></i>
-          <i className="fas fa-ellipsis-v"></i>
-        </span>
+        {dragHandle}
         <div className="icheck-primary d-inline ml-2">
           <input type="checkbox" value=""
             onChange={event => this.handleTodoCheck(event)}
@@ -32,10 +30,10 @@ class TodoItem extends Component<Props> {
         <small className={`badge ${todo.badge}`}>
           <i className="far fa-clock"></i> {todo.pending}
         </small>
-        <div className="tools">
+        {/* <div className="tools">
           <i className="fas fa-edit"></i>
           <i className="fas fa-trash-o"></i>
-        </div>
+        </div> */}
       </li>
     );
   }
