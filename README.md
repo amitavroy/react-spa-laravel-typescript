@@ -2,7 +2,7 @@
 
 # React Admin
 
-![Admin](https://raw.githubusercontent.com/amitavroy/react-spa-laravel-typescript/master/client/src/assets/img/admin.png)
+![Admin](https://raw.githubusercontent.com/amitavroy/react-spa-laravel-typescript/923699863249a50d90295506f5e43ab95c7d7e24/client/src/assets/img/admin.png)
 
 This repository is an SPA that I am building using React JS in front end supported by Laravel in the backend for API. 
 The entire front end is based on the [Admin LTE](https://github.com/ColorlibHQ/AdminLTE) theme. 
