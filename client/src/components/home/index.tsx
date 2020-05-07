@@ -3,6 +3,7 @@ import Card from "./../common/card";
 import TopCards from "./topcards";
 import TodoList from "./../todo/todolist";
 import Modal from "../common/modal";
+import TodoAdd from "../todo/todoadd";
 
 const TodoFooter = (props) => {
   return (
@@ -16,7 +17,10 @@ const TodoFooter = (props) => {
 };
 
 class Home extends Component {
-  state = { showModal: false };
+  state = { showModal: true };
+  handleTodoAdd(data) {
+    console.log("data from home component", data);
+  }
   render() {
     const { showModal } = this.state;
     return (
@@ -41,9 +45,7 @@ class Home extends Component {
                 size="lg"
                 onClose={() => this.setState({ showModal: !showModal })}
               >
-                <p>
-                  This is where the form will <strong>come</strong>.
-                </p>
+                <TodoAdd onTodoAdd={(data) => this.handleTodoAdd(data)} />
               </Modal>
             </Card>
           </div>
