@@ -18,7 +18,7 @@ const TodoFooter = (props) => {
 };
 
 class Home extends Component {
-  state = { showModal: true, todos: [] };
+  state = { showModal: false, todos: [] };
   async componentDidMount() {
     const response = await TodoService.getTodoList();
     this.setState({ todos: response });
