@@ -4,6 +4,7 @@ import TopCards from "./topcards";
 import TodoList from "./../todo/todolist";
 import Modal from "../common/modal";
 import TodoAdd from "../todo/todoadd";
+import TodoService from "../../services/TodoService";
 
 const TodoFooter = (props) => {
   return (
@@ -17,12 +18,19 @@ const TodoFooter = (props) => {
 };
 
 class Home extends Component {
-  state = { showModal: true };
-  handleTodoAdd(data) {
-    console.log("data from home component", data);
+  state = { showModal: true, todos: [] };
+  async componentDidMount() {
+    const response = await TodoService.getTodoList();
+    this.setState({ todos: response });
+  }
+  async handleTodoAdd(data) {
+    const todo = await TodoService.saveNewTodo(data);
+    let newTodos = this.state.todos;
+    newTodos.unshift(todo);
+    this.setState({ todo: newTodos });
   }
   render() {
-    const { showModal } = this.state;
+    const { showModal, todos } = this.state;
     return (
       <React.Fragment>
         <TopCards />
@@ -38,7 +46,7 @@ class Home extends Component {
                 />
               }
             >
-              <TodoList />
+              {todos.length > 0 && <TodoList todosProp={todos} />}
               <Modal
                 title="Add new Todo"
                 visibility={showModal}

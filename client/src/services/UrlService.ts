@@ -27,6 +27,9 @@ class UrlService {
   static changeTodoOrderUrl() {
     return apiDomain + "api/todo/reorder";
   }
+  static saveTodoUrl() {
+    return apiDomain + "api/todo/save";
+  }
 }
 
 export default UrlService;

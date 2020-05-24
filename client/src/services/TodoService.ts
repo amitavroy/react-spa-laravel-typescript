@@ -31,6 +31,16 @@ class TodoService {
       console.error("Not able to change order of the todos");
     }
   }
+
+  async saveNewTodo(postData) {
+    const url = UrlService.saveTodoUrl();
+    try {
+      const response = await HttpService.post(url, postData);
+      return response.data;
+    } catch (error) {
+      console.error("Not able to change order of the todos");
+    }
+  }
 }
 
 export default new TodoService();

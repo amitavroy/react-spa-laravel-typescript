@@ -44,15 +44,15 @@ const SortableList = SortableContainer(({ items, markTodoCompelete }) => {
   );
 });
 
-class TodoList extends Component {
+interface Props {
+  todosProp: Array<any>;
+}
+
+class TodoList extends Component<Props> {
   state = { todos: [], loading: false };
-
   async componentDidMount() {
-    this.setState({ loading: true });
-    const response = await TodoService.getTodoList();
-    this.setState({ loading: false, todos: response });
+    this.setState({ todos: this.props.todosProp });
   }
-
   async markTodoCompelte(todo) {
     const response = await TodoService.markTodoComplete(todo);
     let todos = this.state.todos;

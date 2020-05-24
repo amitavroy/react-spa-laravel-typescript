@@ -46,4 +46,20 @@ class TodoController extends Controller
             }
         });
     }
+
+    public function store(Request $request)
+    {
+        $postData = $this->validate($request, [
+            'description' => ['required', 'min:3'],
+            'date' => ['sometimes', 'date'],
+        ]);
+
+        $todo = Todo::create([
+            'description' => $postData['description'],
+            'ends_at' => $postData['date'],
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return response()->json($todo, 201);
+    }
 }
