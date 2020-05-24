@@ -30,6 +30,9 @@ class UrlService {
   static saveTodoUrl() {
     return apiDomain + "api/todo/save";
   }
+  static removeTodoUrl() {
+    return apiDomain + "api/todo/remove";
+  }
 }
 
 export default UrlService;

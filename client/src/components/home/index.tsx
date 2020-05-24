@@ -5,6 +5,7 @@ import TodoList from "./../todo/todolist";
 import Modal from "../common/modal";
 import TodoAdd from "../todo/todoadd";
 import TodoService from "../../services/TodoService";
+import TodoEvent from "../../interfaces/TodoEvent";
 
 const TodoFooter = (props) => {
   return (
@@ -22,6 +23,20 @@ class Home extends Component {
   async componentDidMount() {
     const response = await TodoService.getTodoList();
     this.setState({ todos: response });
+    this.handleTodoDelete();
+  }
+  handleTodoDelete() {
+    TodoService.getObservable().subscribe(async (event: TodoEvent) => {
+      const postData = { id: event.data.id };
+      await TodoService.removeTodo(postData);
+      let newTodos = this.state.todos.filter((todo) => {
+        return event.data.id !== todo.id;
+      });
+      this.setState({ todos: newTodos });
+    });
+  }
+  componentWillUnmount() {
+    TodoService.getObservable().unsubscribe();
   }
   async handleTodoAdd(data) {
     const todo = await TodoService.saveNewTodo(data);

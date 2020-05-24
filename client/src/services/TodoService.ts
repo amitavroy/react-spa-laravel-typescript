@@ -1,7 +1,14 @@
+import { Subject } from "rxjs";
 import UrlService from "./UrlService";
 import HttpService from "./HttpService";
 
+const subject = new Subject();
+
 class TodoService {
+  getObservable() {
+    return subject;
+  }
+
   async getTodoList() {
     const url = UrlService.getTodoUrl();
     try {
@@ -34,6 +41,16 @@ class TodoService {
 
   async saveNewTodo(postData) {
     const url = UrlService.saveTodoUrl();
+    try {
+      const response = await HttpService.post(url, postData);
+      return response.data;
+    } catch (error) {
+      console.error("Not able to change order of the todos");
+    }
+  }
+
+  async removeTodo(postData) {
+    const url = UrlService.removeTodoUrl();
     try {
       const response = await HttpService.post(url, postData);
       return response.data;

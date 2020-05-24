@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import TodoInterface from "./../../../interfaces/TodoInterface";
+import TodoService from "../../../services/TodoService";
+import TodoEvent from "../../../interfaces/TodoEvent";
 
 interface Props {
   todo: TodoInterface;
@@ -13,7 +15,13 @@ class TodoItem extends Component<Props> {
     const { todo } = this.props;
     this.props.markTodoCompelete(todo);
   }
-
+  handleTodoDelete() {
+    const event: TodoEvent = {
+      name: "todo_delete",
+      data: this.props.todo,
+    };
+    TodoService.getObservable().next(event);
+  }
   render() {
     const { todo, dragHandle } = this.props;
     return (
@@ -39,10 +47,12 @@ class TodoItem extends Component<Props> {
         <small className={`badge ${todo.badge}`}>
           <i className="far fa-clock"></i> {todo.pending}
         </small>
-        {/* <div className="tools">
-          <i className="fas fa-edit"></i>
-          <i className="fas fa-trash-o"></i>
-        </div> */}
+        <div className="tools">
+          <i
+            className="fas fa-trash"
+            onClick={() => this.handleTodoDelete()}
+          ></i>
+        </div>
       </li>
     );
   }

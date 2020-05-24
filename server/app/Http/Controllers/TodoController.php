@@ -62,4 +62,15 @@ class TodoController extends Controller
 
         return response()->json($todo, 201);
     }
+
+    public function remove(Request $request)
+    {
+        $postData = $this->validate($request, [
+            'id' => ['required', 'exists:todos,id'],
+        ]);
+
+        Todo::where('id', $postData['id'])->delete();
+
+        return response()->json("", 201);
+    }
 }

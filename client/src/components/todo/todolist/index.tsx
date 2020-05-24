@@ -53,6 +53,11 @@ class TodoList extends Component<Props> {
   async componentDidMount() {
     this.setState({ todos: this.props.todosProp });
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.todosProp.length !== this.props.todosProp.length) {
+      this.setState({ todos: this.props.todosProp });
+    }
+  }
   async markTodoCompelte(todo) {
     const response = await TodoService.markTodoComplete(todo);
     let todos = this.state.todos;
