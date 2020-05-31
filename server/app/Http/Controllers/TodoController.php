@@ -45,6 +45,8 @@ class TodoController extends Controller
                 Todo::find($value['id'])->update(['order' => $value['order']]);
             }
         });
+
+        return response()->json([], 204);
     }
 
     public function store(Request $request)
