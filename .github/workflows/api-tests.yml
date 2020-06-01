@@ -42,7 +42,7 @@ jobs:
           touch database/database.sqlite
           php artisan key:generate
           php artisan migrate
-          vendor/bin/phpunit
+          vendor/bin/phpunit --testdox
       - name: Install dependencies for React and run test
         run: |
           cd client
