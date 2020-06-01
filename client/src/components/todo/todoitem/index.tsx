@@ -25,7 +25,7 @@ class TodoItem extends Component<Props> {
   render() {
     const { todo, dragHandle } = this.props;
     return (
-      <li className={`${todo.is_completed === true ? "done" : ""}`}>
+      <li className={`${todo.is_completed === true ? "done" : ""} todo-item`}>
         {dragHandle}
         <div className="icheck-primary d-inline ml-2">
           <input
@@ -39,7 +39,7 @@ class TodoItem extends Component<Props> {
           <label htmlFor={`todoCheck${todo.id}`}></label>
         </div>
         <span
-          className="text cursor"
+          className="text cursor handleTodoCheck"
           onClick={(event) => this.handleTodoCheck(event)}
         >
           {todo.description}
