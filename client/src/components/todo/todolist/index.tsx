@@ -44,15 +44,20 @@ const SortableList = SortableContainer(({ items, markTodoCompelete }) => {
   );
 });
 
-class TodoList extends Component {
+interface Props {
+  todosProp: Array<any>;
+}
+
+class TodoList extends Component<Props> {
   state = { todos: [], loading: false };
-
   async componentDidMount() {
-    this.setState({ loading: true });
-    const response = await TodoService.getTodoList();
-    this.setState({ loading: false, todos: response });
+    this.setState({ todos: this.props.todosProp });
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.todosProp.length !== this.props.todosProp.length) {
+      this.setState({ todos: this.props.todosProp });
+    }
+  }
   async markTodoCompelte(todo) {
     const response = await TodoService.markTodoComplete(todo);
     let todos = this.state.todos;
@@ -62,6 +67,18 @@ class TodoList extends Component {
       }
     });
     this.setState({ todos });
+  }
+
+  handleChangeOrder(oldIndex, newIndex) {
+    if (oldIndex === newIndex) {
+      return;
+    }
+    const { todos } = this.state;
+    let newSequence = [];
+    todos.forEach((todo, index) => {
+      newSequence.push({ id: todo.id, order: index + 1 });
+    });
+    TodoService.changeTodoOrder(newSequence);
   }
 
   render() {
@@ -76,6 +93,7 @@ class TodoList extends Component {
             let newTodos = todos;
             newTodos = arrayMove(newTodos, oldIndex, newIndex);
             this.setState({ todos: newTodos });
+            this.handleChangeOrder(oldIndex, newIndex);
           }}
           markTodoCompelete={(todo) => this.markTodoCompelte(todo)}
         />
