@@ -14,7 +14,7 @@
     "array-move": "^2.2.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^2.0.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
